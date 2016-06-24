@@ -1,0 +1,51 @@
+{
+  "name": "fluxtuate-todo-demo",
+  "version": "0.0.1",
+  "description": "A demo of fluxtuate",
+  "main": "bin/index.html",
+  "scripts": {
+    "start": "node server"
+  },
+  "keywords": [
+    "fluxtuate"
+  ],
+  "author": "Ilija Vankov",
+  "license": "ISC",
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-object-rest-spread",
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "core-decorators": "^0.12.3",
+    "fluxtuate": "0.0.2",
+    "fluxtuate-react": "0.0.2",
+    "fluxtuate-router": "0.0.2",
+    "fluxtuate-react-tools": "0.0.2",
+    "material-ui": "^0.15.1",
+    "moment": "^2.13.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-tap-event-plugin": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "react-hot-loader": "^1.3.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}

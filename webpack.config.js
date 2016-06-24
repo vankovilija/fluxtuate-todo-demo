@@ -1,0 +1,23 @@
+var path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+    devtool: 'eval',
+    entry: [
+        'webpack-dev-server/client?http://localhost:3000',
+        'babel-polyfill',
+        './src/index'
+    ],
+    output: {
+        path: path.join(__dirname, 'bin/js'),
+        filename: 'main.js',
+        publicPath: '/js/'
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loaders: ['babel'],
+            include: path.join(__dirname, 'src')
+        }]
+    }
+};
