@@ -1,6 +1,6 @@
 {
   "name": "fluxtuate-todo-demo",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A demo of fluxtuate",
   "main": "bin/index.html",
   "scripts": {
@@ -25,10 +25,10 @@
   "dependencies": {
     "babel-polyfill": "^6.9.1",
     "core-decorators": "^0.12.3",
-    "fluxtuate": "0.0.2",
-    "fluxtuate-react": "0.0.2",
-    "fluxtuate-router": "0.0.2",
-    "fluxtuate-react-tools": "0.0.2",
+    "fluxtuate": "0.0.9",
+    "fluxtuate-react": "0.0.8",
+    "fluxtuate-router": "0.0.7",
+    "fluxtuate-react-tools": "0.0.7",
     "material-ui": "^0.15.1",
     "moment": "^2.13.0",
     "react": "^15.1.0",
