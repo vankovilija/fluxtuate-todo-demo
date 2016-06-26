@@ -1,5 +1,7 @@
 import {inject} from "fluxtuate"
 
+import AboutRouteConfig from "./about-route-config"
+
 //Views
 import AppRouteView from "./app-route-view"
 import AppRouteMediator from "./app-route-mediator"
@@ -65,5 +67,7 @@ export default class Config {
         this.router.mapRoute("/list", {title: "ToDo List Items"}).toPage("todoList");
         this.router.mapRoute("/new", {title: "ToDo List New"}).toPage("newTodoItem");
         this.router.mapRoute("/item/{id}", {title: "ToDo List Edit"}).toPage("editTodoItem");
+        
+        this.router.mapConfig(AboutRouteConfig).toPage("aboutPage").withEvent("DELAY_ROUTE_CHANGE");
     }
 }
