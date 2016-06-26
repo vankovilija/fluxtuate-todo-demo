@@ -2,17 +2,17 @@ import {Mediator, inject} from "fluxtuate"
 
 export default class IndexMediator extends Mediator {
     @inject
-    router;
+    eventDispatcher;
 
     gotoTodoList() {
-        this.router.goToPage("todoList");
+        this.eventDispatcher.dispatch("REDIRECT", {name: "todoList"});
     }
 
     gotoAbout() {
-        this.router.goToPage("aboutPage");
+        this.eventDispatcher.dispatch("REDIRECT", {name: "aboutPage"});
     }
 
     gotoNewItem() {
-        this.router.goToPage("newTodoItem");
+        this.eventDispatcher.dispatch("REDIRECT", {name: "newTodoItem"});
     }
 }

@@ -2,9 +2,6 @@ import {Mediator, inject} from "fluxtuate"
 
 export default class TodoListMediator extends Mediator {
     @inject
-    router;
-
-    @inject
     todoList;
 
     @inject
@@ -23,10 +20,10 @@ export default class TodoListMediator extends Mediator {
     }
 
     editItem(id) {
-        this.router.goToPage("editTodoItem", {id});
+        this.eventDispatcher.dispatch("REDIRECT", {name: "editTodoItem", params: {id}});
     }
 
     goBack() {
-        this.router.goToPage("startingPage");
+        this.eventDispatcher.dispatch("REDIRECT", {name: "startingPage"});
     }
 }

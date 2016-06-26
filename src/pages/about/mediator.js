@@ -2,9 +2,9 @@ import {Mediator, inject} from "fluxtuate"
 
 export default class AboutMediator extends Mediator {
     @inject
-    router;
+    eventDispatcher;
 
     goBack() {
-        this.router.goBack();
+        this.eventDispatcher.dispatch("REDIRECT", {name: "startingPage"});
     }
 }

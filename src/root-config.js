@@ -56,7 +56,6 @@ export default class Config {
         this.mediatorMap.mapView(TodoListView, IndexMediator);
 
         this.mediatorMap.mapView(TodoItem, TodoItemMediator);
-        this.mediatorMap.mapView(TodoItem, AboutMediator);
 
         //store models in context
         this.store(TodoList, "todoList");

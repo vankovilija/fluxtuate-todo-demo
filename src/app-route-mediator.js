@@ -3,9 +3,6 @@ import {Mediator, inject} from "fluxtuate"
 
 export default class AppRouteMediator extends Mediator {
     @inject
-    router;
-    
-    @inject
     eventDispatcher;
 
     init() {
@@ -16,11 +13,11 @@ export default class AppRouteMediator extends Mediator {
         });
     }
     //when the route history changes, this utility function is called in all mediators by the router plugin
-    onNavStackChange() {
+    onNavStackChange(routeProperties) {
         this.setProps({
-            page: this.router.page
+            page: routeProperties.page
         });
         
-        document.title = this.router.routeDefaults.title;
+        document.title = routeProperties.routeDefaults.title;
     }
 }

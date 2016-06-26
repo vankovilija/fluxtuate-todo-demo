@@ -2,9 +2,6 @@ import {Mediator, inject} from "fluxtuate"
 
 export default class TodoListMediator extends Mediator {
     @inject
-    router;
-
-    @inject
     todoList;
     
     @inject
@@ -12,10 +9,11 @@ export default class TodoListMediator extends Mediator {
 
     currentItem;
 
-    onNavStackChange(props) {
+    onNavStackChange(routeProperties) {
+        let props = routeProperties.params;
         if(this.currentItem === props.id){
             return;
-        }
+        } 
 
         this.linkModel(this.todoList, ()=>{
             let todoItem = this.todoList.items.find(props.id);
@@ -29,6 +27,10 @@ export default class TodoListMediator extends Mediator {
 
     saveItem(itemData) {
         this.eventDispatcher.dispatch("SAVE_ITEM", itemData);
-        this.router.goToPage("todoList");
+        this.goBack();
+    }
+    
+    goBack() {
+        this.eventDispatcher.dispatch("REDIRECT", {name: "todoList"});
     }
 }
