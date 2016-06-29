@@ -58,7 +58,7 @@ export default class Config {
         this.mediatorMap.mapView(TodoItem, TodoItemMediator);
 
         //store models in context
-        this.store(TodoList, "todoList");
+        this.store.addModel(TodoList, "todoList");
 
         //map routes
         this.router.mapRoute("/", {title: "ToDo List Example"}).toPage("startingPage");
