@@ -1,29 +1,21 @@
-import {Mediator, inject} from "fluxtuate"
+import {Mediator, inject, bindModel, autoDispatch} from "fluxtuate"
 
 export default class TodoListMediator extends Mediator {
+    @bindModel
     @inject
     todoList;
 
-    @inject
-    eventDispatcher;
+    @autoDispatch("COMPLETE_TODO")
+    completeItem;
 
-    init() {
-        this.linkModel(this.todoList);
-    }
-
-    completeItem(id) {
-        this.eventDispatcher.dispatch("COMPLETE_TODO", id);
-    }
-
-    deleteItem(id) {
-        this.eventDispatcher.dispatch("DELETE_TODO", id);
-    }
+    @autoDispatch("DELETE_TODO")
+    deleteItem;
 
     editItem(id) {
-        this.eventDispatcher.dispatch("REDIRECT", {name: "editTodoItem", params: {id}});
+        this.redirect("editTodoItem", {id});
     }
 
     goBack() {
-        this.eventDispatcher.dispatch("REDIRECT", {name: "startingPage"});
+        this.redirect("startingPage");
     }
 }

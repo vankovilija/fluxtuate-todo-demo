@@ -1,11 +1,8 @@
-import {Mediator, inject} from "fluxtuate"
+import {Mediator, inject, autoDispatch} from "fluxtuate"
 
 export default class TodoListMediator extends Mediator {
     @inject
     todoList;
-    
-    @inject
-    eventDispatcher;
 
     currentItem;
 
@@ -25,12 +22,13 @@ export default class TodoListMediator extends Mediator {
         });
     }
 
+    @autoDispatch("SAVE_ITEM")
     saveItem(itemData) {
-        this.eventDispatcher.dispatch("SAVE_ITEM", itemData);
         this.goBack();
+        return itemData;
     }
     
     goBack() {
-        this.eventDispatcher.dispatch("REDIRECT", {name: "todoList"});
+        this.redirect("todoList");
     }
 }
