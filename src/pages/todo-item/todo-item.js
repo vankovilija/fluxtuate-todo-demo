@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {ReactView} from "fluxtuate-react"
+import {ReactView, automediate} from "fluxtuate-react"
 import TextField from 'material-ui/TextField'
 import DatePicker from 'material-ui/DatePicker'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -59,13 +59,14 @@ export default class TodoItem extends Component {
         });
     }
 
-    handleSave() {
-        this.mediate("saveItem", {
+    @automediate
+    saveItem() {
+        return {
             id: this.props.id,
             title: this.state.title,
             description: this.state.description,
             dueDate: new Date(this.state.dueDate.getTime())
-        });
+        };
     }
 
     render() {
@@ -98,7 +99,7 @@ export default class TodoItem extends Component {
                 onChange={this.handleChangeTime}
             />
             <div style={{textAlign: "center"}}>
-                <RaisedButton label="Save" primary={true} onTouchTap={this.handleSave} />
+                <RaisedButton label="Save" primary={true} onTouchTap={this.saveItem} />
                 <RaisedButton label="Cancel" secondary={true} onTouchTap={()=>this.mediate("goBack")} />
             </div>
         </div>

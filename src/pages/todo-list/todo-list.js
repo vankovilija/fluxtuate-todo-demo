@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import {ReactView} from "fluxtuate-react"
+import {ReactView, automediate} from "fluxtuate-react"
 import {List, ListItem} from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import Subheader from 'material-ui/Subheader'
@@ -39,18 +39,15 @@ export default class ToDoList extends Component {
     static defaultProps = {
         items: []
     };
+    
+    @automediate
+    completeItem;
 
-    completeItem(id) {
-        this.mediate("completeItem", id);
-    }
+    @automediate
+    editItem;
 
-    editItem(id) {
-        this.mediate("editItem", id);
-    }
-
-    deleteItem(id) {
-        this.mediate("deleteItem", id);
-    }
+    @automediate
+    deleteItem;
 
     getListItem(listData) {
         let editFunction = this.editItem.bind(this, listData.id);
