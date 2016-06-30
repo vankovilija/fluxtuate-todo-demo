@@ -1,5 +1,4 @@
 import React, {Component} from "react"
-import {Context} from "fluxtuate"
 import {ReactContext} from "fluxtuate-react"
 import Router from "fluxtuate-router"
 import Config from "./root-config"
