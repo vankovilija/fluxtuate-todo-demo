@@ -8,9 +8,6 @@ export default class CompleteItem extends Command {
     todoList;
     
     execute() {
-        this.todoList.update({items: [{
-            id: this.payload,
-            completedDate: new Date()
-        }]});
+        this.todoList.items.find(this.payload).completedDate = new Date();
     }
 }

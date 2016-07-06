@@ -8,6 +8,6 @@ export default class DeleteItem extends Command {
     todoList;
     
     execute() {
-        this.todoList.items = this.todoList.items.remove(this.payload);
+        this.todoList.items.remove(this.payload);
     }
 }
