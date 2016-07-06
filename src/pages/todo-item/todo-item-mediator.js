@@ -1,6 +1,6 @@
 import {Mediator, inject, autoDispatch} from "fluxtuate"
 
-export default class TodoListMediator extends Mediator {
+export default class TodoItemMediator extends Mediator {
     @inject
     todoList;
 
