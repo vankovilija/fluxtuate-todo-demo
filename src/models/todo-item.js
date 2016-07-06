@@ -1,4 +1,5 @@
 import {Model, property, PropTypes} from "fluxtuate"
+import moment from "moment"
 
 export default class TodoItem extends Model{
     @property(PropTypes.number, true)
@@ -12,7 +13,8 @@ export default class TodoItem extends Model{
 
     @property(PropTypes.date)
     dueDate;
-
-    @property(PropTypes.date)
-    completedDate;
+    
+    get dueText() {
+        return moment(this.dueDate).format("HH:mm:ss DD.MM.YYYY");
+    }
 }
