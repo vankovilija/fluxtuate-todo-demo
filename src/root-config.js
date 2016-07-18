@@ -40,8 +40,11 @@ export default class Config {
     router;
     
     configure() {
+        //store models in context
+        this.store.addModel(TodoList, "todoList");
+
         //map commands
-        this.commandMap.mapEvent("SAVE_ITEM").toCommand(SaveItem);
+        this.commandMap.mapEvent("SAVE_ITEM").toCommand(SaveItem, this.store.getModel("todoList"));
         this.commandMap.mapEvent("COMPLETE_TODO").toCommand(CompleteItem);
         this.commandMap.mapEvent("DELETE_TODO").toCommand(DeleteItem);
 
@@ -56,9 +59,6 @@ export default class Config {
         this.mediatorMap.mapView(TodoListView, IndexMediator);
 
         this.mediatorMap.mapView(TodoItem, TodoItemMediator);
-
-        //store models in context
-        this.store.addModel(TodoList, "todoList");
 
         //map routes
         this.router.mapRoute("/", {title: "ToDo List Example"}).toPage("startingPage");

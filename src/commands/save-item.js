@@ -1,17 +1,18 @@
-import {Command, inject} from "fluxtuate"
+import {Command, inject, dependencies} from "fluxtuate"
 
+@dependencies("model")
 export default class SaveItem extends Command {
     @inject
     payload;
-
+    
     @inject
-    todoList;
+    model;
     
     execute() {
         if(this.payload.id === undefined){
-            this.payload.id = ++this.todoList.lastItemID;
+            this.payload.id = ++this.model.lastItemID;
         }
         this.payload.completedDate = undefined;
-        this.todoList.update({items: [this.payload]});
+        this.model.update({items: [this.payload]});
     }
 }
