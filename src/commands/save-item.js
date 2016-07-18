@@ -8,7 +8,7 @@ export default class SaveItem extends Command {
     todoList;
     
     execute() {
-        if(!this.payload.id){
+        if(this.payload.id === undefined){
             this.payload.id = ++this.todoList.lastItemID;
         }
         this.payload.completedDate = undefined;

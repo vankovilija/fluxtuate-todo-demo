@@ -45,7 +45,7 @@ export default class ToDoList extends Component {
 
     @automediate
     editItem;
-
+    
     @automediate
     deleteItem;
 
