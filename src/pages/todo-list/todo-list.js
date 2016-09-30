@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import {ReactView, automediate} from "fluxtuate-react"
+import {Link} from "fluxtuate-react-router"
 import {List, ListItem} from 'material-ui/List'
 import Divider from 'material-ui/Divider'
 import Subheader from 'material-ui/Subheader'
@@ -41,7 +42,10 @@ export default class ToDoList extends Component {
     };
     
     @automediate
-    completeItem;
+    completeItem(event) {
+        debugger;
+        return event;
+    };
 
     @automediate
     editItem;
@@ -170,7 +174,7 @@ export default class ToDoList extends Component {
                     >
                         <ArrowBack />
                     </IconButton>
-                    <RaisedButton label="New Item" secondary={true} onTouchTap={()=>this.mediate("gotoNewItem")} />
+                    <RaisedButton containerElement={<Link page="newTodoItem" type={Link.BUTTON}/>} label="New Item" secondary={true} />
                 </div>
 
                 <List>
