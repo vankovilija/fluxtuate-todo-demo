@@ -5,19 +5,28 @@ export default class AppRouteMediator extends Mediator {
     @inject
     eventDispatcher;
 
+    @inject
+    location;
+
     init() {
         this.eventDispatcher.addListener("SHOW_LOADING", ()=>{
             this.setProps({
-                page: <div>loading... <br />(example loading with timer, check out the DelayRouteChange command)</div>
+                showLoading: true
             });
+        });
+
+        this.eventDispatcher.addListener("HIDE_LOADING", ()=>{
+            this.setProps({
+                showLoading: false
+            });
+        });
+
+        this.setProps({
+            location: this.location
         });
     }
     //when the route history changes, this utility function is called in all mediators by the router plugin
     onNavStackChange(routeProperties) {
-        this.setProps({
-            page: routeProperties.page
-        });
-        
-        document.title = routeProperties.routeDefaults.title;
+        document.title = routeProperties.routeDefaults ? routeProperties.routeDefaults.title : "TODO";
     }
 }

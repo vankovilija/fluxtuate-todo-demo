@@ -4,7 +4,7 @@ export default class TodoItemMediator extends Mediator {
     @inject
     todoList;
 
-    currentItem;
+    currentItem = null;
 
     onNavStackChange(routeProperties) {
         let props = routeProperties.params;
