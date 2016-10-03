@@ -18,7 +18,7 @@ export default class Config {
         this.mediatorMap.mapView(AppRouteView, AppRouteMediator);
 
         //map routes
-        let todoContext = this.router.createContext("todo");
+        let todoContext = this.router.createConfiguration("todo");
         todoContext.mapRoute("/", {title: "ToDo List Example"}).toPage("startingPage");
         todoContext.mapRoute("/about", {title: "ToDo About"}).toPage("aboutPage");
         todoContext.mapRoute("/list", {title: "ToDo List Items"}).toPage("todoList");
